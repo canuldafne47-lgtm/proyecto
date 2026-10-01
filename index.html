@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title >Blog Matemático Interactivo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+body {
+  font-family: Poppins, sans-serif;
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 10px;
+  color: #222222; /*color de la letra de toda la pagina*/
+                     /* Fondo degradado */
+  background: linear-gradient(135deg, #FFFF, #FFFF);
+  min-height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  color: #a81da3c4;/*color del titulo de las pagina*/
+  cursor: pointer;
+  border-bottom: 2px solid #c91d9e;/*color de la linea debajo del titulo*/
+  padding-bottom: 5px;
+}
+
+p {
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #ffffff;/*color de fondo de los parrafos*/
+  padding: 10px;
+  border-radius: 4px;
+}
+
+table {
+  width: 100%;/*para que la tabla ocupe todo el ancho disponible*/
+  border-spacing: 0;
+  margin: 20px 0;
+  border-radius: 8px;
+  overflow: hidden; /*para que las esquinas redondeadas funcionen*/
+  box-shadow: 0 2px 8px rgba(10, 10, 10, 0.05);/*agrega sombra a la tabla*/
+}
+
+th, td{
+  background-color: #db83a082; /*color de fondo de las celdas de la tabla*/
+  color: #222222;/*color de la letra de las celdas de la tabla*/
+  padding: 8px;
+  text-align: left;
+  font-weight: 300;/*negrita en las celdas de la tabla*/
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;/*para que las celdas compartan bordes*/
+  margin: 15px 0;
+}
+
+th, td {
+  border: 1px solid #0b50f08b;/*color de la linea de las celdas de la tabla*/
+  padding: 8px;
+  text-align: left;
+  cursor: pointer;
+}
+
+th {
+  background-color: #5047bc;/*color de fondo de los subtitulos de la tabla ejemplo tema*/
+  color: white;
+}
+
+ul, ol {
+  background-color: #bcacec;/*color de fondo de las listas*/
+  padding: 15px 30px;
+  border: 1px solid #ddd;
+}
+
+li {
+  margin: 5px 0;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* Se la aplicas a la etiqueta table */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 20px 0;
+  border-radius: 12px;
+  overflow: hidden; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); 
+
+  /* Aplica la animación definida */
+  animation: deslizarTabla 0.8s ease-out;
+}
+
+.oculto {
+  display: none;/*oculta la lista cuando se hace clic en el parrafo*/}
+
+.resaltado {
+  background-color: #d4efdf;/*color de fondo de los elementos resaltados*/
+  color: #d078ca;/*color de la letra de los elementos resaltados*/
+
+}
+
+.cambio-color {
+  color:#c01e74
+}
+/* 1. Definir la animación */
+@keyframes aparecer {
+  from {
+    opacity: 0;                         /* Empieza completamente transparente */
+    transform: translateY(-20px);       /* Empieza 20px por encima de su posición original */
+  }
+  to {
+    opacity: 1;                         /* Termina completamente visible */
+    transform: translateY(0);           /* Llega a su posición original */
+  }
+}
+
+/* 2. Aplicar la animación al título */
+h1 {
+  color: #7a1da8c4;
+  cursor: pointer;
+  border-bottom: 2px solid #c91d9e;
+  padding-bottom: 5px;
+
+  /* Aplica la animación: dura 0.8 segundos y es suave */
+  animation: aparecer 0.8s ease-out;
+}
+.cambio-color:hover{ /*cambia el color del titulo cuando se pasa el mouse por encima*/
+  color:#a9519c;
+ }
+
+.cambio-color:active{
+  color:#651d81;
+}
+.cambio-color:hover:active{ /*cambia el color del titulo cuando se hace clic en el titulo*/
+  color:#5288da
+
+}
+.header {
+  /* Redondear las esquinas */
+  border-radius: 12px;
+
+  /* Cambiar el color del texto */
+  color:#310f33;
+
+  /* Cambiar el color del fondo si es necesario */
+  background-color: #6c98de;
+
+  /* Opcional: relleno para que el texto no quede pegado al borde */
+  padding: 10px 15px;
+}
+</style>
+</head>
+<body>
+<h1 id="titulo" onclick="cambiarColorTitulo()">Blog Matemático Interactivo</h1>
+<p class="header" onclick="alternarLista('conceptos')"> <!--/*aqui para cambiar el color del parrafo de conceptos basicos*/-->
+Conceptos Básicos 
+</p>
+<ul id="conceptos">
+<li onclick="resaltarElemento(this)">Álgebra: Manipulación de símbolos y ecuaciones.</li>
+<li onclick="resaltarElemento(this)">Geometría: Estudio de las propiedades de figuras y espacios.</li>
+<li onclick="resaltarElemento(this)">Cálculo: Análisis del cambio y del movimiento.</li>
+<li onclick="resaltarElemento(this)">Estadística: Análisis y tratamiento de datos.</li>
+<li onclick="resaltarElemento(this)">Casos de factorizacion y una lista .</li>
+</ul>
+<p class="header" onclick="alternarLista('casos')"> <!--/*aqui para cambiar el color del parrafo de casos de factorizacion*/-->
+Casos de Factorización 
+</p>
+<ul id="casos">
+<li onclick="resaltarElemento(this)">Factor común</li>
+<li onclick="resaltarElemento(this)">Diferencia de cuadrados</li>
+<li onclick="resaltarElemento(this)">Trinomio cuadrado perfecto</li>
+</ul>
+<p class="header">Tabla de Fórmulas </p>
+<table>
+<tr>
+<th>Tema</th>
+<th>Fórmula</th>
+</tr>
+<tr>
+<td onclick="resaltarElemento(this)">Área del triángulo</td>
+<td onclick="resaltarElemento(this)">Base por altura dividido entre 2</td>
+</tr>
+<td onclick="resaltarElemento(this)">Teorema de Pitágoras</td>
+<td onclick="resaltarElemento(this)">a elevado al cuadrado más b elevado al cuadrado igual a c elevado al cuadrado</td>
+<tr>
+<td onclick="resaltarElemento(this)">Suma de cubos</td>
+<td onclick="resaltarElemento(this)">a³ + b³= (a + b)(a² - ab + b²)</td>
+</tr>
+<tr>
+<td onclick="resaltarElemento(this)">Perímetro del círculo</td>
+<td onclick="resaltarElemento(this)">2 por Pi por radio</td>
+</tr>
+</table>
+ <!---- /*aqui para cambiar el color del parrafo de pasos para resolver un problema*/-->
+<p class="header" onclick="alternarLista('pasos')">     
+Pasos para resolver un problema 
+</p>
+<ol id="pasos">
+<li onclick="resaltarElemento(this)">Comprender el problema planteado.</li>
+<li onclick="resaltarElemento(this)">Trazar un plan o seleccionar la fórmula.</li>
+<li onclick="resaltarElemento(this)">Ejecutar las operaciones requeridas.</li>
+<li onclick="resaltarElemento(this)">Revisar y verificar la solución.</li>
+</ol>
+
+<script>
+function cambiarColorTitulo() {
+var titulo = document.getElementById('titulo');
+titulo.classList.toggle('cambio-color');
+}
+function alternarLista(id) {
+var lista = document.getElementById(id);
+lista.classList.toggle('oculto');
+}
+function resaltarElemento(elemento) {
+elemento.classList.toggle('resaltado');
+}
+</script>
+</body>
+</html>
